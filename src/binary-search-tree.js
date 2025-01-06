@@ -40,8 +40,17 @@ class BinarySearchTree {
     }
   }
 
-  has(/*data*/) {
-
+  has(data) {
+    if (this.rootNode === null) return false;
+    let curr = this.rootNode;
+    while (curr !== null) {
+      if (curr.data === data) {
+        return true;
+      }
+      else if (data < curr.data) { curr = curr.left; }
+      else { curr = curr.right; }
+    }
+    return false;
   }
 
   find(/* data */) {
