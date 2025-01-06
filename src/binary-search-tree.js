@@ -18,27 +18,30 @@ class BinarySearchTree {
     let curr = null;
     if (!this.rootNode) {
       this.rootNode = new Node(data);
+      return;
     } else {
       curr = this.rootNode
-      while (curr.left || curr.right) {
+      while (true) {
         if (data < curr.data) {
           if (!curr.left) {
             curr.left = new Node(data);
             return;
-          } else { curr = curr.left }
-        } else if (data > curr.data) {
+          }
+          curr = curr.left;
+        }
+        if (data > curr.data) {
           if (!curr.right) {
             curr.right = new Node(data);
             return;
-          } else { curr = curr.right }
-        }
+          }
+          curr = curr.right;
+        } if (data === curr.data) { return; }
       }
     }
   }
 
-  has(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  has(/*data*/) {
+
   }
 
   find(/* data */) {
