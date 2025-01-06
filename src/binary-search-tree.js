@@ -102,7 +102,11 @@ class BinarySearchTree {
       }
 
       curr.data = descendant.data;
-      (parent.left === descendant ? parent.left : parent.right) = descendant.right;
+      if (parent.left === descendant) {
+        parent.left = descendant.right;
+      } else {
+        parent.right = descendant.right;
+      }
     }
   }
 
